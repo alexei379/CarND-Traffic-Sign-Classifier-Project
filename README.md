@@ -81,22 +81,19 @@ It consisted of the following layers:
 | RELU					|	Activation											|
 | Fully connected		| 84 -> 43	|
 | Output				| 43 logits        									|
-|						|												|
- 
-
 
 ### 3. Model training
 
-To train the model I used and optimizer that implements the Adam algorithm.
+To train the model I used and optimizer that implements the Adam algorithm to minimize the loss - mean of softmax cross entropy between logits and labels.
 
-Learning rate = 0.001
-Number of epochs = 100 
-Batch size = 128
-Keep probability = 0.25
+* Learning rate = 0.001
+* Number of epochs = 100 
+* Batch size = 128
+* Keep probability = 0.25
 
 ### 4. Solution Approach
 
-I choose to use LeNet-5 architecture from the [CarND-LeNet-Lab](https://github.com/udacity/CarND-LeNet-Lab) as a base model. It woked well on recognizing complex features of hand-written digits so I decided to give it a try. As we have more classes to classify, I added extra fully connected layer to gather more feature information in it. To prevent overfitting I also added a dropout layer. 
+I choose to use LeNet-5 architecture from the [CarND-LeNet-Lab](https://github.com/udacity/CarND-LeNet-Lab) as a base model. It worked well on recognizing complex features of hand-written digits so I decided to give it a try. As we have more classes to classify, I added extra fully connected layer to gather more feature information in it. To prevent overfitting I also added a dropout layer. 
 
 Also I was iteratively adjusting parameters like learning rate, number of epochs and keep probablity to get the final results. I decided to add a "break" from the epochs cycle once the target accuracy is reached.
 
@@ -107,49 +104,124 @@ My final model results were:
 
 Accuracy over 0.93 on all sets proves that the chosen approach successfully solves the problem. 
 
-###Test a Model on New Images
+## Test a Model on New Images
 
-####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
+### 1. Ten German traffic signs
 
-Here are five German traffic signs that I found on the web:
+I used [Google Street View](https://www.google.com/maps/place/Bremen,+Germany/) to get ten signs from Bremen streets and used my model to predict the traffic sign type.
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+| Image from the web         		|     Description	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/1.jpg) | Speed limit |
+| ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/12.jpg) | Priority road |
+| ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/13.jpg) | Yield	|
+| ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/15.jpg) | No vehicles |
+| ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/17.jpg) | No entry |
+| ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/18.jpg) | General caution |
+| ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/25.jpg) | Road work |
+| ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/33.jpg) | Turn right ahead |
+| ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/35.jpg) | Ahead only |
+| ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/36.jpg) | Go straight or right |
 
-The first image might be difficult to classify because ...
 
-####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+### 2. Performance on New Images
 
 Here are the results of the prediction:
 
-| Image			        |     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+| Image	| Expected	| Prediction | 
+|:-----:|:--------:|:----------:| 
+| ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/1.jpg) | Speed limit | Speed limit |
+| ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/12.jpg) | Priority road | Priority road |
+| ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/13.jpg) | Yield	|
+ Yield	|| ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/15.jpg) | No vehicles |
+| ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/17.jpg) | No entry | No entry |
+| ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/18.jpg) | General caution |
+ General caution || ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/25.jpg) | Road work |
+| ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/33.jpg) | Turn right ahead |
+ Turn right ahead || ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/35.jpg) | Ahead only | Ahead only |
+| ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/36.jpg) | Go straight or right | Go straight or right |
+
+The model was able to correctly guess 10 of the 10 traffic signs, which gives an accuracy of 100%. The accuracy is in line with the test data set accuracy of 94.5%. 
+I believe that such high accuracy was due to images on Google Street View are collected in a similar way as the trainig data set was created (i.e. pictures of real signs in the streets).
+
+### 3. Model Certainty - Softmax Probabilities
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
-
-####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
 The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
 
 For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
 
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
-
-
-For the second image ... 
-
-### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
-####1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
-
+| File | Top Softmax Probabilities |
+| 1 | 2 | 3 | 4 | 5 |
+| **1.jpg
+Speed limit (30km/h)** | Speed limit (30km/h)
+0.999918222427 | Speed limit (50km/h)
+0.000050964361 | Speed limit (70km/h)
+0.000028002120 | Speed limit (80km/h)
+0.000002151676 | Speed limit (20km/h)
+0.000000517173 |
+| **12.jpg
+Priority road** | Priority road
+0.999999642372 | Roundabout mandatory
+0.000000234978 | Road work
+0.000000132352 | Keep right
+0.000000041225 | Turn left ahead
+0.000000024632 |
+| **13.jpg
+Yield** | Yield
+1.000000000000 | Priority road
+0.000000000000 | No vehicles
+0.000000000000 | No passing
+0.000000000000 | Go straight or right
+0.000000000000 |
+| **15.jpg
+No vehicles** | No vehicles
+0.990516245365 | Speed limit (70km/h)
+0.005945517682 | Speed limit (50km/h)
+0.003034086665 | Yield
+0.000159200528 | Priority road
+0.000144167629 |
+| **17.jpg
+No entry** | No entry
+0.999993562698 | Turn left ahead
+0.000003147254 | Stop
+0.000002419770 | Turn right ahead
+0.000000375887 | Keep left
+0.000000311693 |
+| **18.jpg
+General caution** | General caution
+1.000000000000 | Pedestrians
+0.000000041053 | Traffic signals
+0.000000021591 | Keep right
+0.000000000019 | Go straight or left
+0.000000000001 |
+| **25.jpg
+Road work** | Road work
+0.940166592598 | Children crossing
+0.017493918538 | Slippery road
+0.015498344786 | Pedestrians
+0.006842988543 | Priority road
+0.006191547960 |
+| **33.jpg
+Turn right ahead** | Turn right ahead
+1.000000000000 | Ahead only
+0.000000000590 | Priority road
+0.000000000014 | Keep left
+0.000000000003 | Turn left ahead
+0.000000000001 |
+| **35.jpg
+Ahead only** | Ahead only
+0.999990344048 | Turn right ahead
+0.000009497156 | Road work
+0.000000108985 | Right-of-way at the next intersection
+0.000000014637 | Priority road
+0.000000004412 |
+| **36.jpg
+Go straight or right** | Go straight or right
+0.999999642372 | Ahead only
+0.000000155470 | Keep right
+0.000000065167 | Turn left ahead
+0.000000043115 | Turn right ahead
+0.000000007037 |
