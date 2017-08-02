@@ -132,13 +132,14 @@ Here are the results of the prediction:
 |:-----:|:--------:|:----------:| 
 | ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/1.jpg) | Speed limit | Speed limit |
 | ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/12.jpg) | Priority road | Priority road |
-| ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/13.jpg) | Yield	|
- Yield	|| ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/15.jpg) | No vehicles |
+| ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/13.jpg) | Yield	| Yield	|
+| ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/15.jpg) | No vehicles | No vehicles |
 | ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/17.jpg) | No entry | No entry |
 | ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/18.jpg) | General caution |
- General caution || ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/25.jpg) | Road work |
-| ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/33.jpg) | Turn right ahead |
- Turn right ahead || ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/35.jpg) | Ahead only | Ahead only |
+ General caution |
+| ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/25.jpg) | Road work | Road work |
+| ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/33.jpg) | Turn right ahead | Turn right ahead |
+| ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/35.jpg) | Ahead only | Ahead only |
 | ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/36.jpg) | Go straight or right | Go straight or right |
 
 The model was able to correctly guess 10 of the 10 traffic signs, which gives an accuracy of 100%. The accuracy is in line with the test data set accuracy of 94.5%. 
