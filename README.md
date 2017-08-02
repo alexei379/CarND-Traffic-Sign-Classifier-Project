@@ -57,20 +57,27 @@ As the last step I normalize the image data to make it easier for the optimizer 
 Sample images from the preprocessed trainig set:
 ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/report_images/train_images_samples.png)
 
-####2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
+### 2. Model architecture
 
-My final model consisted of the following layers:
+My final model is a convolutional network based on LeNet-5 architecture. 
+It consisted of the following layers:
 
 | Layer         		|     Description	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x3 RGB image   							| 
-| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
-| RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
-| Convolution 3x3	    | etc.      									|
-| Fully connected		| etc.        									|
-| Softmax				| etc.        									|
-|						|												|
+| Input         		| 32x32x1 Grayscale image   							| 
+| Convolution 1x1     	| 1x1 stride, valid padding, outputs 28x28x6 	|
+| RELU					|	Activation											|
+| Max pooling	      	| 2x2 stride,  outputs 14x14x6 				|
+| Convolution 1x1     	| 1x1 stride, valid padding, outputs 10x10x16 	|
+| RELU					|	Activation											|
+| Max pooling	      	| 2x2 stride,  outputs 5x5x16 				| 
+| Flatten | 5x5x16 -> 400x1 |
+| Fully connected		| 400 -> 250	|
+| Dropout		| Keep probability = 0.25	|
+| Fully connected		| 250 -> 160	|
+| Fully connected		| 160 -> 84	|
+| Fully connected		| 84 -> 43	|
+| Output				| 43 logits        									|
 |						|												|
  
 
