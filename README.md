@@ -153,75 +153,158 @@ The code for making predictions on my final model is located in the 11th cell of
 
 For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
 
-| File | Top Softmax Probabilities |
-| 1 | 2 | 3 | 4 | 5 |
-| **1.jpg
-Speed limit (30km/h)** | Speed limit (30km/h)
-0.999918222427 | Speed limit (50km/h)
-0.000050964361 | Speed limit (70km/h)
-0.000028002120 | Speed limit (80km/h)
-0.000002151676 | Speed limit (20km/h)
-0.000000517173 |
-| **12.jpg
-Priority road** | Priority road
-0.999999642372 | Roundabout mandatory
-0.000000234978 | Road work
-0.000000132352 | Keep right
-0.000000041225 | Turn left ahead
-0.000000024632 |
-| **13.jpg
-Yield** | Yield
-1.000000000000 | Priority road
-0.000000000000 | No vehicles
-0.000000000000 | No passing
-0.000000000000 | Go straight or right
-0.000000000000 |
-| **15.jpg
-No vehicles** | No vehicles
-0.990516245365 | Speed limit (70km/h)
-0.005945517682 | Speed limit (50km/h)
-0.003034086665 | Yield
-0.000159200528 | Priority road
-0.000144167629 |
-| **17.jpg
-No entry** | No entry
-0.999993562698 | Turn left ahead
-0.000003147254 | Stop
-0.000002419770 | Turn right ahead
-0.000000375887 | Keep left
-0.000000311693 |
-| **18.jpg
-General caution** | General caution
-1.000000000000 | Pedestrians
-0.000000041053 | Traffic signals
-0.000000021591 | Keep right
-0.000000000019 | Go straight or left
-0.000000000001 |
-| **25.jpg
-Road work** | Road work
-0.940166592598 | Children crossing
-0.017493918538 | Slippery road
-0.015498344786 | Pedestrians
-0.006842988543 | Priority road
-0.006191547960 |
-| **33.jpg
-Turn right ahead** | Turn right ahead
-1.000000000000 | Ahead only
-0.000000000590 | Priority road
-0.000000000014 | Keep left
-0.000000000003 | Turn left ahead
-0.000000000001 |
-| **35.jpg
-Ahead only** | Ahead only
-0.999990344048 | Turn right ahead
-0.000009497156 | Road work
-0.000000108985 | Right-of-way at the next intersection
-0.000000014637 | Priority road
-0.000000004412 |
-| **36.jpg
-Go straight or right** | Go straight or right
-0.999999642372 | Ahead only
-0.000000155470 | Keep right
-0.000000065167 | Turn left ahead
-0.000000043115 | Turn right ahead
-0.000000007037 |
+<table>
+  <tbody>
+    <tr>
+      <th rowspan="2">Image</th>
+      <th colspan="5">Top Softmax Probabilities</th>
+    </tr>
+    <tr>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+    </tr>
+    <tr>
+      <td><img src="https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/1.jpg"/><br>
+      Speed limit (30km/h)</td>
+      <td>Speed limit (30km/h)<br>
+      0.999918222427</td>
+      <td>Speed limit (50km/h)<br>
+      0.000050964361</td>
+      <td>Speed limit (70km/h)<br>
+      0.000028002120</td>
+      <td>Speed limit (80km/h)<br>
+      0.000002151676</td>
+      <td>Speed limit (20km/h)<br>
+      0.000000517173</td>
+    </tr>
+    <tr>
+      <td><img src="https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/12.jpg"/><br>
+      Priority road</td>
+      <td>Priority road<br>
+      0.999999642372</td>
+      <td>Roundabout mandatory<br>
+      0.000000234978</td>
+      <td>Road work<br>
+      0.000000132352</td>
+      <td>Keep right<br>
+      0.000000041225</td>
+      <td>Turn left ahead<br>
+      0.000000024632</td>
+    </tr>
+    <tr>    
+      <td><img src="https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/13.jpg"/><br>
+      Yield</td>
+      <td>Yield<br>
+      1.000000000000</td>
+      <td>Priority road<br>
+      0.000000000000</td>
+      <td>No vehicles<br>
+      0.000000000000</td>
+      <td>No passing<br>
+      0.000000000000</td>
+      <td>Go straight or right<br>
+      0.000000000000</td>
+    </tr>
+    <tr>
+      <td><img src="https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/15.jpg"/><br>
+      No vehicles</td>
+      <td>No vehicles<br>
+      0.990516245365</td>
+      <td>Speed limit (70km/h)<br>
+      0.005945517682</td>
+      <td>Speed limit (50km/h)<br>
+      0.003034086665</td>
+      <td>Yield<br>
+      0.000159200528</td>
+      <td>Priority road<br>
+      0.000144167629</td>
+    </tr>
+    <tr>
+      <td><img src="https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/17.jpg"/><br>
+      No entry</td>
+      <td>No entry<br>
+      0.999993562698</td>
+      <td>Turn left ahead<br>
+      0.000003147254</td>
+      <td>Stop<br>
+      0.000002419770</td>
+      <td>Turn right ahead<br>
+      0.000000375887</td>
+      <td>Keep left<br>
+      0.000000311693</td>
+    </tr>
+    <tr>
+      <td><img src="https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/18.jpg"/><br>
+      General caution</td>
+      <td>General caution<br>
+      1.000000000000</td>
+      <td>Pedestrians<br>
+      0.000000041053</td>
+      <td>Traffic signals<br>
+      0.000000021591</td>
+      <td>Keep right<br>
+      0.000000000019</td>
+      <td>Go straight or left<br>
+      0.000000000001</td>
+    </tr>
+    <tr>
+      <td><img src="https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/25.jpg"/><br>
+      Road work</td>
+      <td>Road work<br>
+      0.940166592598</td>
+      <td>Children crossing<br>
+      0.017493918538</td>
+      <td>Slippery road<br>
+      0.015498344786</td>
+      <td>Pedestrians<br>
+      0.006842988543</td>
+      <td>Priority road<br>
+      0.006191547960</td>
+    </tr>
+    <tr>
+      <td><img src="https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/33.jpg"/><br>
+      Turn right ahead</td>
+      <td>Turn right ahead<br>
+      1.000000000000</td>
+      <td>Ahead only<br>
+      0.000000000590</td>
+      <td>Priority road<br>
+      0.000000000014</td>
+      <td>Keep left<br>
+      0.000000000003</td>
+      <td>Turn left ahead<br>
+      0.000000000001</td>
+    </tr>
+    <tr>
+      <td><img src="https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/35.jpg"/><br>
+      Ahead only</td>
+      <td>Ahead only<br>
+      0.999990344048</td>
+      <td>Turn right ahead<br>
+      0.000009497156</td>
+      <td>Road work<br>
+      0.000000108985</td>
+      <td>Right-of-way at the next intersection<br>
+      0.000000014637</td>
+      <td>Priority road<br>
+      0.000000004412</td>
+    </tr>
+    <tr>
+      <td><img src="https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/36.jpg"/><br>
+      Go straight or right</td>
+      <td>Go straight or right<br>
+      0.999999642372</td>
+      <td>Ahead only<br>
+      0.000000155470</td>
+      <td>Keep right<br>
+      0.000000065167</td>
+      <td>Turn left ahead<br>
+      0.000000043115</td>
+      <td>Turn right ahead<br>
+      0.000000007037</td>
+    </tr>
+  </tbody>
+</table>
