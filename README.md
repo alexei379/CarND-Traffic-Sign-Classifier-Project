@@ -1,7 +1,7 @@
 # Traffic Sign Classification Project
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
-The goals / steps of this project are the following:
+The goals/steps of this project are the following:
 * Load the data set (see below for links to the project data set)
 * Explore, summarize and visualize the data set
 * Design, train and test a model architecture
@@ -36,7 +36,7 @@ I used Python to calculate summary statistics of the traffic signs data set:
 
 ### 2. Visualization of the dataset
 
-Here is an exploratory visualization of the data set. It is a bar chart showing that classes have the same distribution in trainig, validation and test data sets.
+Here is an exploratory visualization of the data set. It is a bar chart showing that classes have the same distribution in training, validation and test data sets.
 ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/report_images/distrib_all_pre_random.png)
 
 But the number of training images is not evenly distributed between classes:
@@ -44,17 +44,16 @@ But the number of training images is not evenly distributed between classes:
 
 ## Design and Test a Model Architecture
 
-### 1. Preprocessing trainig images
+### 1. Preprocessing training images
 
-First I generate fake random training data by rotating ±15°, shifting horizontally and vertically ±2 pixels. This allows to get more trainig data for better network trainig.
-To make the distribution of training data between classes I generate different number of random images for each class.
+First I generate fake random training data by rotating ±15°, shifting horizontally and vertically ±2 pixels. This allows getting more training data for better network training. To make the distribution of training data between classes I generate a different number of random images for each class.
 
 ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/report_images/distrib_train_after_random.png)
 
 After this images are converted to grayscale as LeNet architecture works with grayscale images.
-As the last step I normalize the image data to make it easier for the optimizer to find an optimal solution. 
+As the last step, I normalize the image data to make it easier for the optimizer to find an optimal solution. 
 
-Sample images from the preprocessed trainig set:
+Sample images from the preprocessed training set:
 ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/report_images/train_images_samples.png)
 
 ### 2. Model architecture
@@ -93,9 +92,9 @@ To train the model I used and optimizer that implements the Adam algorithm to mi
 
 ### 4. Solution Approach
 
-I choose to use LeNet-5 architecture from the [CarND-LeNet-Lab](https://github.com/udacity/CarND-LeNet-Lab) as a base model. It worked well on recognizing complex features of hand-written digits so I decided to give it a try. As we have more classes to classify, I added extra fully connected layer to gather more feature information in it. To prevent overfitting I also added a dropout layer. 
+I choose to use LeNet-5 architecture from the [CarND-LeNet-Lab](https://github.com/udacity/CarND-LeNet-Lab) as a base model. It worked well on recognizing complex features of handwritten digits so I decided to give it a try. As we have more classes to classify, I added an extra fully connected layer to gather more feature information in it. To prevent overfitting I also added a drop out layer.
 
-Also I was iteratively adjusting parameters like learning rate, number of epochs and keep probablity to get the final results. I decided to add a "break" from the epochs cycle once the target accuracy is reached.
+Also, I was iteratively adjusting parameters like learning rate, the number of epochs and keep probability to get the final results. I decided to add a "break" from the epochs cycle once the target accuracy is reached.
 
 My final model results were:
 * training set accuracy of 0.986
@@ -142,12 +141,12 @@ Here are the results of the prediction:
 | ![](https://raw.githubusercontent.com/alexei379/CarND-Traffic-Sign-Classifier-Project/master/test_signs/36.jpg) | Go straight or right | Go straight or right |
 
 The model was able to correctly guess 10 of the 10 traffic signs, which gives an accuracy of 100%. The accuracy is in line with the test data set accuracy of 94.5%. 
-I believe that such high accuracy was due to images on Google Street View are collected in a similar way as the trainig data set was created (i.e. pictures of real signs in the streets).
+I believe that such high accuracy was due to images on Google Street View are collected in a similar way as the training data set was created (i.e. pictures of real signs in the streets).
 
 ### 3. Model Certainty - Softmax Probabilities
 
 The model is pretty certain about all images. The lowest "first" probability is for "Road work" sign is 0.940166592598. 
-Model recognizes some features of "Children crossing" and "Slippery road" signs, which is correct as they are also represented by a triangle with a symbol in the middle.
+The model recognizes some features of "Children crossing" and "Slippery road" signs, which is correct as they are also represented by a triangle with a symbol in the middle.
 
 Table with top-5 softmax probabilities (left to right: most certain -> least certain)
 <table>
