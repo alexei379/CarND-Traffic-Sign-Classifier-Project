@@ -146,13 +146,10 @@ I believe that such high accuracy was due to images on Google Street View are co
 
 ### 3. Model Certainty - Softmax Probabilities
 
+The model is pretty certain about all images. The lowest "first" probability is for "Road work" sign is 0.940166592598. 
+Model recognizes some features of "Children crossing" and "Slippery road" signs, which is correct as they are also represented by a triangle with a symbol in the middle.
 
-Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
-
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
-
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
-
+Table with top-5 softmax probabilities (left to right: most certain -> least certain)
 <table>
   <tbody>
     <tr>
